@@ -65,10 +65,10 @@ public class DinPay extends CordovaPlugin {
                 "　　</trade>\n" +
                 "　　</request>\n" +
                 "</dinpay>\n";
-        Intent intent = new Intent(this.cordova.getActivity().getApplicationContext(), cordova.plugin.dinpay.MerchantPayResultActivity.class);
-//        intent.putExtra("xml", xml);
+        Intent intent = new Intent(this.cordova.getActivity().getApplicationContext(), com.dinpay.plugin.activity.DinpayChannelActivity.class);
+        intent.putExtra("xml", xml);
 //        intent.putExtra("ActivityName", "cordova.plugin.dinpay.ResultActivity");
-        this.cordova.getActivity().startActivityForResult(intent, 0);
+        this.cordova.startActivityForResult(this, intent, 0);
     }
 
     @Override
