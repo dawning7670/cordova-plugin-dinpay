@@ -28,6 +28,11 @@
       <!-- 银联 -->
       <activity android:name="com.unionpay.uppay.PayActivity" android:configChanges="orientation|keyboardHidden" android:excludeFromRecents="true" android:label="@string/app_name" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
       <activity android:name="com.unionpay.uppay.PayActivityEx" android:configChanges="orientation|keyboardHidden" android:excludeFromRecents="true" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+      <!-- 额外 -->
+      <activity
+          android:name="cordova.plugin.dinpay.MerchantPayResultActivity"
+          android:configChanges="keyboardHidden|orientation"
+          android:screenOrientation="portrait" />
   </config-file>
     <config-file parent="/*" target="AndroidManifest.xml">
       <uses-permission android:name="android.permission.INTERNET" />
@@ -46,6 +51,8 @@
     </config-file>
     <source-file src="src/android/DinPay.java" target-dir="src/cordova/plugin/dinpay" />
     <source-file src="src/android/ResultActivity.java" target-dir="src/cordova/plugin/dinpay" />
+    <source-file src="src/android/MerchantPayResultActivity.java" target-dir="src/cordova/plugin/dinpay" />
+    <source-file src="src/android/R.java" target-dir="src/cordova/plugin/dinpay" />
     <!-- libs -->
     <source-file src="src/android/libs/android-async-http-1.4.4.jar" target-dir="libs" />
     <source-file src="src/android/libs/android-support-v4.jar" target-dir="libs" />

@@ -15,8 +15,6 @@ import android.os.RemoteException;
 import android.util.Base64;
 import android.util.Log;
 
-import com.dinpay.plugin.activity.DinpayChannelActivity;
-
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaArgs;
 import org.apache.cordova.CordovaInterface;
@@ -67,10 +65,10 @@ public class DinPay extends CordovaPlugin {
                 "　　</trade>\n" +
                 "　　</request>\n" +
                 "</dinpay>\n";
-        Intent intent = new Intent(this.cordova.getActivity(), DinpayChannelActivity.class);
-        intent.putExtra("xml", xml);
-        intent.putExtra("ActivityName", "cordova.plugin.dinpay.ResultActivity");
-        this.cordova.startActivityForResult(this, intent, 0);
+        Intent intent = new Intent(this.cordova.getActivity().getApplicationContext(), cordova.plugin.dinpay.MerchantPayResultActivity.class);
+//        intent.putExtra("xml", xml);
+//        intent.putExtra("ActivityName", "cordova.plugin.dinpay.ResultActivity");
+        this.cordova.getActivity().startActivityForResult(intent, 0);
     }
 
     @Override
