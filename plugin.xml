@@ -120,7 +120,7 @@
     <source-file src="src/android/libs/armeabi/libDinpayEntryKey.so" target-dir="libs/armeabi/" />
     <source-file src="src/android/libs/armeabi/libentryexstd.so" target-dir="libs/armeabi/" />
     <source-file src="src/android/libs/armeabi-v7a/libDinpayEntryKey.so" target-dir="libs/armeabi-v7a/" />
-    <source-file src="src/android/libs/armeabi-v7a/libDinpayEntryKey.so" target-dir="libs/armeabi-v7a/" />
+    <source-file src="src/android/libs/armeabi-v7a/libentryexstd.so" target-dir="libs/armeabi-v7a/" />
     <source-file src="src/android/libs/mips/libDinpayEntryKey.so" target-dir="libs/mips/" />
     <source-file src="src/android/libs/mips/libentryexstd.so" target-dir="libs/mips/" />
     <source-file src="src/android/libs/x86/libDinpayEntryKey.so" target-dir="libs/x86/" />
