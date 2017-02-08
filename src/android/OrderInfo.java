@@ -129,7 +129,7 @@ public class OrderInfo {
      */
     private String getRawSign() {
         //组织签名规则格式
-        Map<String, String> maps = new TreeMap<>();
+        Map<String, String> maps = new TreeMap<String, String>();
         maps.put("merchant_code", this.merchant_code);
         maps.put("notify_url", this.notify_url);
         maps.put("interface_version", this.interface_version);
