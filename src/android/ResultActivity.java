@@ -10,9 +10,8 @@ public class ResultActivity extends Activity{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
 		Bundle xmlData = getIntent().getExtras();
-		if(xmlData!=null){
+		if(xmlData!=null) {
 			String response = xmlData.getString("xml");
 			try{
 				String status = "<trade_status>";
@@ -22,7 +21,7 @@ public class ResultActivity extends Activity{
 				if("SUCCESS".equals(str)){
 					setResult(0);
 				}else if("UNPAY".equals(str)){
-					setResult(-1);
+					setResult(555);
 				}else{
 					setResult(1);
 				}
