@@ -22,6 +22,8 @@ public class DinPay extends CordovaPlugin {
 
     private CallbackContext callbackContext;
 
+    private static String payResult;
+
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         this.callbackContext = callbackContext;
@@ -62,7 +64,11 @@ public class DinPay extends CordovaPlugin {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
-        callbackContext.success(resultCode);
+        callbackContext.success(payResult);
+    }
+
+    public static void setPayResult(String result) {
+        DinPay.payResult = result;
     }
 }
 

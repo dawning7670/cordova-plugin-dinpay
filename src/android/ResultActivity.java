@@ -4,11 +4,13 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.widget.TextView;
+import cordova.plugin.dinpay.DinPay;
 
-public class ResultActivity extends Activity{
+public class ResultActivity extends Activity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		moveTaskToBack(true);
 		super.onCreate(savedInstanceState);
 		Bundle xmlData = getIntent().getExtras();
 		if(xmlData!=null) {
@@ -18,26 +20,12 @@ public class ResultActivity extends Activity{
 				int start = response.indexOf(status);
 				int end = response.indexOf("</trade_status>");
 				String str = response.substring(start+status.length(), end);
-				if("SUCCESS".equals(str)){
-					setResult(0);
-				}else if("UNPAY".equals(str)){
-					setResult(555);
-				}else{
-					setResult(1);
-				}
+				DinPay.setPayResult(str);
 			}catch (Exception e) {
 				e.printStackTrace();
+				DinPay.setPayResult("ERROR");
 			}
 		}
-	}
-	
-	@Override
-	public boolean onKeyUp(int keyCode, KeyEvent event) {
-		if(keyCode==event.KEYCODE_BACK){
-//			Intent intent =new Intent(ResultActivity.this,MainActivity.class);
-//			startActivity(intent);
-			this.finish();
-		}
-		return super.onKeyUp(keyCode, event);
+		this.finish();
 	}
 }
