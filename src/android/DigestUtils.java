@@ -28,7 +28,7 @@ public class DigestUtils {
 		return cordova.plugin.dinpay.Hex.encodeHexString(md5(data));
 	}
 
-	public static String toMosaic(Context context,String name,String idc){
+	public static String toMosaic(String name,String idc){
 		String b="";
 		if(!name.trim().equals("")||!idc.trim().equals("")){
 			b ="customer_name^"+name+"|"+"customer_idNumber^"+idc;

@@ -70,7 +70,7 @@ public class OrderInfo {
         this.extra_return_param = jsonObject.getString("extra_return_param");
         this.customer_name = jsonObject.getString("customer_name");
         this.customer_idNumber = jsonObject.getString("customer_idNumber");
-        this.extend_param = cordova.plugin.dinpay.DigestUtils.toMosaic(this, customer_name, customer_idNumber);
+        this.extend_param = cordova.plugin.dinpay.DigestUtils.toMosaic(customer_name, customer_idNumber);
     }
 
     /**
