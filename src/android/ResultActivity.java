@@ -10,8 +10,6 @@ public class ResultActivity extends Activity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		moveTaskToBack(true);
-		super.onCreate(savedInstanceState);
 		Bundle xmlData = getIntent().getExtras();
 		if(xmlData!=null) {
 			String response = xmlData.getString("xml");
@@ -26,6 +24,5 @@ public class ResultActivity extends Activity {
 				DinPay.setPayResult("ERROR");
 			}
 		}
-		this.finish();
 	}
 }
