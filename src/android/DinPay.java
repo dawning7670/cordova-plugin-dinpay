@@ -7,6 +7,7 @@ import org.apache.cordova.CordovaPlugin;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import android.util.Log;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -53,6 +54,7 @@ public class DinPay extends CordovaPlugin {
         OrderInfo orderInfo = new OrderInfo(jsonObject);
         String xml = orderInfo.toXML();
         Intent intent = new Intent(this.cordova.getActivity().getApplicationContext(), com.dinpay.plugin.activity.DinpayChannelActivity.class);
+        Log.i("[pay_xml] = ", xml);
         intent.putExtra("xml", xml);
         intent.putExtra("ActivityName", "cordova.plugin.dinpay.ResultActivity");
         this.cordova.startActivityForResult(this, intent, 0);

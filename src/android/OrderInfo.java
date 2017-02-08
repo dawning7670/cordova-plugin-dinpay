@@ -47,6 +47,8 @@ public class OrderInfo {
     private String customer_name;
     /** 消费者身份证号 可选 必须与姓名一起用  **/
     private String customer_idNumber;
+    /**公用业务扩展参数*/
+    private String extend_param;
 
     public OrderInfo() {
     }
@@ -68,6 +70,7 @@ public class OrderInfo {
         this.extra_return_param = jsonObject.getString("extra_return_param");
         this.customer_name = jsonObject.getString("customer_name");
         this.customer_idNumber = jsonObject.getString("customer_idNumber");
+        this.extend_param = cordova.plugin.dinpay.DigestUtils.toMosaic(this, customer_name, customer_idNumber);
     }
 
     /**
@@ -115,8 +118,7 @@ public class OrderInfo {
                 "      <product_num>" + this.product_num + "</product_num>\n" +
                 "      <product_desc>" + this.product_desc + "</product_desc>\n" +
                 "      <extra_return_param>" + this.extra_return_param + "</extra_return_param>\n" +
-                "      <customer_name>" + this.customer_name + "</customer_name>\n" +
-                "      <customer_idNumber>" + this.customer_idNumber + "</customer_idNumber>\n" +
+                "      <extend_param>" + this.extend_param + "</extend_param>\n" +
                 "    </trade>\n" +
                 "  </request>\n" +
                 "</dinpay>\n";
@@ -142,8 +144,7 @@ public class OrderInfo {
         maps.put("product_num", this.product_num);
         maps.put("product_desc", this.product_desc);
         maps.put("extra_return_param", this.extra_return_param);
-        maps.put("customer_name", this.customer_name);
-        maps.put("customer_idNumber", this.customer_idNumber);
+        maps.put("extend_param", this.extend_param);
         StringBuffer sb = new StringBuffer();
         for (Map.Entry<String, String> entry : maps.entrySet()) {
             String value = entry.getValue();
