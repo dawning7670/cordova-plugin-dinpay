@@ -10,6 +10,8 @@ public class ResultActivity extends Activity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		this.finish();
 		Bundle xmlData = getIntent().getExtras();
 		if(xmlData!=null) {
 			String response = xmlData.getString("xml");
