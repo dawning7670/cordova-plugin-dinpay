@@ -51,14 +51,17 @@
     </config-file>
     <!-- java -->
     <source-file src="src/android/DinPay.java" target-dir="src/cordova/plugin/dinpay" />
-    <!--<source-file src="src/android/DigestUtils.java" target-dir="src/cordova/plugin/dinpay" />-->
-    <!--<source-file src="src/android/Hex.java" target-dir="src/cordova/plugin/dinpay" />-->
-    <!--<source-file src="src/android/OrderInfo.java" target-dir="src/cordova/plugin/dinpay" />-->
+    <source-file src="src/android/DigestUtils.java" target-dir="src/cordova/plugin/dinpay" />
+    <source-file src="src/android/Hex.java" target-dir="src/cordova/plugin/dinpay" />
+    <source-file src="src/android/OrderInfo.java" target-dir="src/cordova/plugin/dinpay" />
     <source-file src="src/android/ResultActivity.java" target-dir="src/cordova/plugin/dinpay" />
     <!-- libs -->
     <source-file src="src/android/libs/android-async-http-1.4.4.jar" target-dir="libs" />
     <source-file src="src/android/libs/android-support-v4.jar" target-dir="libs" />
+    <source-file src="src/android/libs/bcmail-jdk15-1.45.jar" target-dir="libs" />
+    <source-file src="src/android/libs/bcprov-jdk15-1.45.jar" target-dir="libs" />
     <source-file src="src/android/libs/dinpayPlugin.jar" target-dir="libs" />
+    <source-file src="src/android/libs/dinpayRsaSignAPI-2.7.10.jar" target-dir="libs" />
     <source-file src="src/android/libs/armeabi/libDinpayEntryKey.so" target-dir="libs/armeabi/" />
     <source-file src="src/android/libs/armeabi/libentryexstd.so" target-dir="libs/armeabi/" />
     <source-file src="src/android/libs/armeabi-v7a/libDinpayEntryKey.so" target-dir="libs/armeabi-v7a/" />

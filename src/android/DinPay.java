@@ -12,6 +12,8 @@ import android.util.Log;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
+import cordova.plugin.dinpay.OrderInfo;
+
 
 /**
  * This class echoes a string called from JavaScript.
@@ -51,8 +53,21 @@ public class DinPay extends CordovaPlugin {
     public void pay(JSONArray args) throws Exception
     {
         JSONObject jsonObject = args.getJSONObject(0);
+        OrderInfo orderInfo = new OrderInfo(jsonObject);
+        String xml = orderInfo.toXML();
+        Intent intent = new Intent(this.cordova.getActivity().getApplicationContext(), com.dinpay.plugin.activity.DinpayChannelActivity.class);
+        Log.i("[pay_xml] = ", xml);
+        intent.putExtra("xml", xml);
+        intent.putExtra("ActivityName", "cordova.plugin.dinpay.ResultActivity");
+        this.cordova.startActivityForResult(this, intent, 0);
+    }
+
+    public void payWithXML(JSONArray args) throws Exception
+    {
+        JSONObject jsonObject = args.getJSONObject(0);
         String xml = jsonObject.getString("data");
         Intent intent = new Intent(this.cordova.getActivity().getApplicationContext(), com.dinpay.plugin.activity.DinpayChannelActivity.class);
+        Log.i("[pay_xml] = ", xml);
         intent.putExtra("xml", xml);
         intent.putExtra("ActivityName", "cordova.plugin.dinpay.ResultActivity");
         this.cordova.startActivityForResult(this, intent, 0);

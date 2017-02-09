@@ -47,8 +47,6 @@ public class OrderInfo {
     private String customer_name;
     /** 消费者身份证号 可选 必须与姓名一起用  **/
     private String customer_idNumber;
-    /** 签名服务器地址 **/
-    private String sign_url;
     /**公用业务扩展参数*/
     private String extend_param;
 
@@ -72,7 +70,6 @@ public class OrderInfo {
         this.extra_return_param = jsonObject.getString("extra_return_param");
         this.customer_name = jsonObject.getString("customer_name");
         this.customer_idNumber = jsonObject.getString("customer_idNumber");
-        this.sign_url = jsonObject.getString("sign_url");
         this.extend_param = cordova.plugin.dinpay.DigestUtils.toMosaic(customer_name, customer_idNumber);
     }
 
@@ -129,14 +126,6 @@ public class OrderInfo {
     }
 
     /**
-     * RSA签名
-     * @return
-     */
-    private String getRSASSignature(String rawSign) {
-        return null;
-    }
-
-    /**
      * 获取签名串
      * @return
      */
@@ -164,6 +153,24 @@ public class OrderInfo {
             }
         }
         return sb.toString().substring(0, sb.toString().length() - 1);
+    }
+
+    /**
+     * RSA签名
+     * @param plainText
+     * @return
+     * @throws Exception
+     */
+    private String getRSASSignature(String plainText) throws Exception {
+        /**
+         1)merchant_private_key，商户私钥，商户按照《密钥对获取工具说明》操作并获取商户私钥；获取商户私钥的同时，也要获取商户公钥（merchant_public_key）；调试运行
+         代码之前首先先将商户公钥上传到智付商家后台"支付管理"->"公钥管理"（如何获取和上传请查看《密钥对获取工具说明》），不上传商户公钥会导致调试运行代码时报错。
+         2)demo提供的merchant_private_key是测试商户号1111110166的商户私钥，请自行获取商户私钥并且替换	*/
+
+        String merchant_private_key = "MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAMJDTN/URI+dfTlxmOZX57pZYBDr/6lp55BInmtYJpTG9Fhl1aVdpxdc7y8kHO8sAoPG2XNb5LQVDNtAMC4ZlXRpqLiKfGCNFZ7dGRA//hnvmrnA08vNxFYQb2vvwR0qsTaBljn5ukgPyR3cBNV70Ze5tO0Qf/OIGsKKOAIytR4xAgMBAAECgYASEdCEwWnfMfcD8N0YD/UuEEIvUMRnLcKsWRTjRz/PdvIjhtVonF1+ftaAvAs09BMHzudLI7ESTyLzAfV5VEficq/5YGOJ3KGT6e2uexF5PdiHIEonvx6H67Mt/gZ3O9hmvwl7BcuKhW1H7ATfPTfhYDGimoLRmO7Nvikk/+WkAQJBAOXtoFldmak2hzukh79cqCyrJPp7RIk3oQSQz8QTGqsnYqFBWmuoeXFRNrJTZH1wIQiKxaMO8Ib4wIX3k0VngGkCQQDYSmC+WiWfhwxllnKiOnXSUMzYbwk64RKvWdXnoQXCvszYQk8fmYVW6ul1wRg2hc5fvIOkT5RREvIEomZ7+XaJAkEArse1rnkCR6jVn7bwIb0zcdEfKPDvJkeNNMVHykqjaRtlVCMzssa8mjEcHO5bYycLVUz38311xYPuBWgvIQEOkQJBANOgkuAtXDqm7N5JQoixIq9SF9x9aE6QArRH9h/ZUcWm4s+Gsdx9XhYZa6yn7oUKj07lKPkQVFKvctZOAHC1OeECQASdLH1AlwLlSqjY+TCZYVqbXn0eG/lLhawzYWnibApUJiV1V6FazKpZLxZECovCmoh8QFrmrYtd6iQaQEhvofc=";
+        String signData = RSAWithSoftware.signByPrivateKey(plainText, merchant_private_key);
+        signData = signData.replaceAll("\\+", "%2B");
+        return signData;
     }
 
 
@@ -285,13 +292,5 @@ public class OrderInfo {
 
     public void setCustomer_name(String customer_name) {
         this.customer_name = customer_name;
-    }
-
-    public String getSign_url() {
-        return sign_url;
-    }
-
-    public void setSign_url(String sign_url) {
-        this.sign_url = sign_url;
     }
 }
