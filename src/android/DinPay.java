@@ -33,6 +33,11 @@ public class DinPay extends CordovaPlugin {
                 pay(args);
                 return true;
             }
+            if (action.equals("payWithXML"))
+            {
+                pay(args);
+                return true;
+            }
         } catch (Exception e)
         {
             e.printStackTrace();
