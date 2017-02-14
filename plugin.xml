@@ -75,15 +75,15 @@
     <source-file src="src/android/libs/x86/libentryexstd.so" target-dir="libs/x86/" />
     <source-file src="src/android/assets/data.bin" target-dir="assets/" />
 
-    <source-file src="src/android/libs/classes.jar" target-dir="libs" />
-    <source-file src="src/android/libs/hamcrest-all-1.3.jar" target-dir="libs" />
-    <source-file src="src/android/libs/hamcrest-core-1.3.jar" target-dir="libs" />
-    <source-file src="src/android/libs/hamcrest-core-1.3-sources.jar" target-dir="libs" />
-    <source-file src="src/android/libs/hamcrest-integration-1.3.jar" target-dir="libs" />
-    <source-file src="src/android/libs/hamcrest-library-1.3.jar" target-dir="libs" />
-    <source-file src="src/android/libs/javapoet-1.7.0.jar" target-dir="libs" />
-    <source-file src="src/android/libs/javawriter-2.1.1.jar" target-dir="libs" />
-    <source-file src="src/android/libs/lint.jar" target-dir="libs" />
-    <source-file src="src/android/libs/permissionsdispatcher-2.3.1-sources.jar" target-dir="libs" />
+    <!--<source-file src="src/android/libs/classes.jar" target-dir="libs" />-->
+    <!--<source-file src="src/android/libs/hamcrest-all-1.3.jar" target-dir="libs" />-->
+    <!--<source-file src="src/android/libs/hamcrest-core-1.3.jar" target-dir="libs" />-->
+    <!--<source-file src="src/android/libs/hamcrest-core-1.3-sources.jar" target-dir="libs" />-->
+    <!--<source-file src="src/android/libs/hamcrest-integration-1.3.jar" target-dir="libs" />-->
+    <!--<source-file src="src/android/libs/hamcrest-library-1.3.jar" target-dir="libs" />-->
+    <!--<source-file src="src/android/libs/javapoet-1.7.0.jar" target-dir="libs" />-->
+    <!--<source-file src="src/android/libs/javawriter-2.1.1.jar" target-dir="libs" />-->
+    <!--<source-file src="src/android/libs/lint.jar" target-dir="libs" />-->
+    <!--<source-file src="src/android/libs/permissionsdispatcher-2.3.1-sources.jar" target-dir="libs" />-->
   </platform>
 </plugin>

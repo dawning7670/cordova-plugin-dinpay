@@ -9,14 +9,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.os.Build;
-import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 import cordova.plugin.dinpay.OrderInfo;
-import permissions.dispatcher.NeedsPermission;
+//import permissions.dispatcher.NeedsPermission;
 
 
 /**
@@ -59,7 +58,7 @@ public class DinPay extends CordovaPlugin {
         return false;
     }
 
-    @NeedsPermission(Mainfest.permission.READ_PHONE_STATE)
+//    @NeedsPermission(Mainfest.permission.READ_PHONE_STATE)
     public void pay(JSONArray args) throws Exception
     {
         JSONObject jsonObject = args.getJSONObject(0);
