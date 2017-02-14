@@ -59,6 +59,7 @@ public class DinPay extends CordovaPlugin {
         return false;
     }
 
+    @NeedsPermission(Mainfest.permission.READ_PHONE_STATE)
     public void pay(JSONArray args) throws Exception
     {
         JSONObject jsonObject = args.getJSONObject(0);
